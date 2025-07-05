@@ -3955,15 +3955,16 @@ input, select, textarea {
 			visibility: visible;
 		}
 
-		.iframe-container {
-   			 display: flex;
-			flex-wrap: wrap;
-			gap: 1em;
-			justify-content: center;
-			align-items: flex-start;
-		}
+.iframe-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1em;
+}
 
-		.iframe-item {
-			flex: 1 1 400px;
-			max-width: 600px;
-		}
+.iframe-box {
+    flex: 1 1 45%;
+    min-width: 300px;
+    max-width: 600px;
+}
