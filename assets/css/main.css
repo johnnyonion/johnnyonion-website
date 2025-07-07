@@ -3997,3 +3997,9 @@ input, select, textarea {
     width: 100%;
     height: 100%;
 }
+@media screen and (max-width: 736px) {
+    .video-container iframe {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
