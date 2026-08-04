@@ -14,6 +14,6 @@ Expect posts about:
 - **Detector** — progress on the novel rewrite, research rabbit holes, and (eventually) how to get an early copy
 - **What I'm looking for** — collaborators, producers, festivals, and anyone who wants to help get one of these off the page and onto a stage (or a bookshelf)
 
-If you want to follow along, [subscribe to the RSS feed](/blog/feed.xml) — email signup is coming soon.
+If you want to follow along, [subscribe to the RSS feed](/blog/feed.xml) or join the email list below.
 
 More soon.
