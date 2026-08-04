@@ -1,6 +1,14 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = strip_tags(trim($_POST["name"]));
+    // Honeypot spam check
+    if (!empty($_POST["website"])) {
+        // If the hidden field is filled, likely a bot.
+        echo "Spam detected. Submission rejected.";
+        exit;
+    }
+
+    // Strip CR/LF to prevent email header injection via the From header below
+    $name = str_replace(["\r", "\n"], "", strip_tags(trim($_POST["name"])));
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $message = trim($_POST["message"]);
 
@@ -23,24 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Build the email headers
     $headers = "From: $name <$email>";
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Honeypot spam check
-    if (!empty($_POST["website"])) {
-        // If the hidden field is filled, likely a bot.
-        echo "Spam detected. Submission rejected.";
-        exit;
-    }
-
-    $name = strip_tags(trim($_POST["name"]));
-    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $message = trim($_POST["message"]);
-
-    // Validate fields
-    if (empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($message)) {
-        echo "Please complete the form and provide a valid email address.";
-        exit;
-    }}
 
     // Send the email
     if (mail($to, $subject, $email_content, $headers)) {
