@@ -1,0 +1,22 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>johnnyonion.com Blog</title>
+	<subtitle>Updates on new musicals, the Detector novels, and other projects from Giovanni Cipolla.</subtitle>
+	<link href="https://johnnyonion.com/blog/feed.xml" rel="self"/>
+	<link href="https://johnnyonion.com/blog/"/>
+	<updated>{{ collections.post | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+	<id>https://johnnyonion.com/blog/</id>
+	{%- for post in collections.post | reverse %}
+	<entry>
+		<title>{{ post.data.title }}</title>
+		<link href="https://johnnyonion.com/blog{{ post.url }}"/>
+		<updated>{{ post.date | dateToRfc3339 }}</updated>
+		<id>https://johnnyonion.com/blog{{ post.url }}</id>
+		<content type="html">{{ post.templateContent | escape }}</content>
+	</entry>
+	{%- endfor %}
+</feed>

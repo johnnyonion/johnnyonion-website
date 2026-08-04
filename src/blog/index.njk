@@ -1,0 +1,17 @@
+---
+layout: layout.njk
+title: Blog
+subtitle: Updates on new musicals, the Detector novels, and whatever else is in progress.
+description: Updates on new musicals, the Detector novels, and other projects from Giovanni Cipolla.
+eleventyExcludeFromCollections: true
+---
+<ul class="post-list">
+{% for post in collections.post | reverse %}
+	<li>
+		<h3><a href="/blog{{ post.url }}">{{ post.data.title }}</a></h3>
+		<p class="post-meta"><time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time></p>
+		{% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
+	</li>
+{% endfor %}
+</ul>
+<p><a href="/blog/feed.xml">Subscribe via RSS</a></p>
