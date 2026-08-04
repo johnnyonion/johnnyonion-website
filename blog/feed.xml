@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>johnnyonion.com Blog</title>
+	<subtitle>Updates on new musicals, the Detector novels, and other projects from Giovanni Cipolla.</subtitle>
+	<link href="https://johnnyonion.com/blog/feed.xml" rel="self"/>
+	<link href="https://johnnyonion.com/blog/"/>
+	<updated>2026-08-04T00:00:00Z</updated>
+	<id>https://johnnyonion.com/blog/</id>
+	<entry>
+		<title>Starting This Blog</title>
+		<link href="https://johnnyonion.com/blog/posts/welcome/"/>
+		<updated>2026-08-04T00:00:00Z</updated>
+		<id>https://johnnyonion.com/blog/posts/welcome/</id>
+		<content type="html">&lt;p&gt;Hi, I&#39;m Giovanni. If you&#39;ve found this page, you&#39;ve probably already seen the shows and the novel-in-progress elsewhere on this site — this is where I&#39;ll actually talk about how that work is going.&lt;/p&gt;
+&lt;p&gt;Expect posts about:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;New demos and readings&lt;/strong&gt; — when a song drops on SoundCloud, when a scene gets a table read, when a show moves from &amp;quot;idea&amp;quot; to &amp;quot;actually happening&amp;quot;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Detector&lt;/strong&gt; — progress on the novel rewrite, research rabbit holes, and (eventually) how to get an early copy&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What I&#39;m looking for&lt;/strong&gt; — collaborators, producers, festivals, and anyone who wants to help get one of these off the page and onto a stage (or a bookshelf)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want to follow along, &lt;a href=&quot;/blog/feed.xml&quot;&gt;subscribe to the RSS feed&lt;/a&gt; — email signup is coming soon.&lt;/p&gt;
+&lt;p&gt;More soon.&lt;/p&gt;
+</content>
+	</entry>
+</feed>
