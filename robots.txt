@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /contact.php
+Disallow: /src/
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.eleventy.js
+Disallow: /HOW-TO-BLOG.md
+Disallow: /.github/
+
+Sitemap: https://johnnyonion.com/sitemap.xml
+Sitemap: https://johnnyonion.com/blog/sitemap.xml
