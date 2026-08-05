@@ -25,14 +25,22 @@
 				padding-top: 1.5em;
 			}
 			@media print {
-				#header, nav#menu, #banner .image, footer#footer, #contact form, #contact .split, .save-onesheet-btn {
+				#header, nav#menu, #banner .image, footer#footer, #contact form, #contact .split, .save-onesheet-btn, #banner:after {
 					display: none !important;
 				}
 				body { font-size: 10.5pt; line-height: 1.4; }
 				#wrapper, #main, #one { padding: 0 !important; }
-				#banner { padding: 0.5em 0 !important; min-height: 0 !important; }
+				#banner {
+					height: auto !important;
+					max-height: none !important;
+					min-height: 0 !important;
+					margin-bottom: 0 !important;
+					top: 0 !important;
+					padding: 0.5em 0 !important;
+				}
 				#banner .inner { padding: 0 !important; }
 				#banner h1 { font-size: 20pt !important; margin: 0 0 0.1em !important; }
+				#banner .content { margin: 0 !important; }
 				#banner .content p { font-size: 11pt !important; margin: 0 !important; }
 				#one .inner { padding: 0 !important; }
 				#one .inner header.major { margin: 0.6em 0 0.15em !important; padding: 0 !important; }
