@@ -25,10 +25,21 @@
 				padding-top: 1.5em;
 			}
 			@media print {
-				#header, nav#menu, #banner .image, footer#footer, #contact form, #contact .split {
+				#header, nav#menu, #banner .image, footer#footer, #contact form, #contact .split, .save-onesheet-btn {
 					display: none !important;
 				}
-				body { font-size: 11pt; }
+				body { font-size: 10.5pt; line-height: 1.4; }
+				#wrapper, #main, #one { padding: 0 !important; }
+				#banner { padding: 0.5em 0 !important; min-height: 0 !important; }
+				#banner .inner { padding: 0 !important; }
+				#banner h1 { font-size: 20pt !important; margin: 0 0 0.1em !important; }
+				#banner .content p { font-size: 11pt !important; margin: 0 !important; }
+				#one .inner { padding: 0 !important; }
+				#one .inner header.major { margin: 0.6em 0 0.15em !important; padding: 0 !important; }
+				#one .inner header.major h2 { font-size: 13pt !important; margin: 0 !important; }
+				#one .inner p { margin: 0 0 0.5em !important; }
+				.one-sheet-meta { margin-bottom: 0.35em !important; }
+				.one-sheet-contact { margin-top: 0.8em !important; padding-top: 0.6em !important; }
 				#one a[href]::after {
 					content: " (" attr(href) ")";
 					font-size: 0.85em;
@@ -75,6 +86,9 @@
 							</header>
 							<div class="content">
 								<p>One-Sheet</p>
+								<ul class="actions save-onesheet-btn">
+									<li><a href="#" class="button primary" onclick="window.print(); return false;">Save / Print One-Sheet</a></li>
+								</ul>
 							</div>
 						</div>
 					</section>
