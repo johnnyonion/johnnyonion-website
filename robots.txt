@@ -6,6 +6,7 @@ Disallow: /package.json
 Disallow: /package-lock.json
 Disallow: /.eleventy.js
 Disallow: /HOW-TO-BLOG.md
+Disallow: /CLAUDE.md
 Disallow: /.github/
 
 Sitemap: https://johnnyonion.com/sitemap.xml
