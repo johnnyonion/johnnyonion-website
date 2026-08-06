@@ -11,6 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = str_replace(["\r", "\n"], "", strip_tags(trim($_POST["name"])));
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $message = trim($_POST["message"]);
+    $show = str_replace(["\r", "\n"], "", strip_tags(trim($_POST["show"] ?? "")));
+    if (empty($show)) {
+        $show = "General";
+    }
 
     // Validate fields
     if (empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($message)) {
@@ -22,11 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $to = "johnnyonion@me.com";
 
     // Set email subject
-    $subject = "New message from johnnyonion.com";
+    $subject = "New message from johnnyonion.com - $show";
 
     // Build the email content
     $email_content = "Name: $name\n";
-    $email_content .= "Email: $email\n\n";
+    $email_content .= "Email: $email\n";
+    $email_content .= "Show: $show\n\n";
     $email_content .= "Message:\n$message\n";
 
     // Build the email headers
