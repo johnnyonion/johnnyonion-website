@@ -9,7 +9,7 @@ eleventyExcludeFromCollections: true
 {% for post in collections.post | reverse %}
 	<li>
 		<h3><a href="/blog{{ post.url }}">{{ post.data.title }}</a></h3>
-		<p class="post-meta"><time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time></p>
+		<p class="post-meta"><time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>{% if post.data.project and projects[post.data.project] %} &middot; <a class="project-tag" href="{{ projects[post.data.project].url }}">{{ projects[post.data.project].name }}</a>{% endif %}</p>
 		{% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
 	</li>
 {% endfor %}

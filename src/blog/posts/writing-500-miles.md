@@ -3,6 +3,7 @@ layout: post.njk
 title: Writing "500 Miles"
 date: 2026-08-05
 tags: ["post"]
+project: 500M
 summary: How Jordan gets his first real reaction to being sent away — and why the song had to end on a chord that doesn't resolve.
 description: How Jordan gets his first real reaction to being sent away — and why the song had to end on a chord that doesn't resolve.
 ---

@@ -1,6 +1,6 @@
 ---
 layout: layout.njk
 ---
-<p class="post-meta"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+<p class="post-meta"><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>{% if project and projects[project] %} &middot; <a class="project-tag" href="{{ projects[project].url }}">{{ projects[project].name }}</a>{% endif %}</p>
 {{ content | safe }}
 <p><a href="/blog/">&larr; Back to Blog</a></p>
