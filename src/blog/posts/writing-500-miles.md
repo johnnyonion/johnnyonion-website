@@ -16,7 +16,7 @@ It's Jordan's solo in the second act, and it's the first time we hear what's act
 
 While writing the lyrics I noticed "miles" can be sung with one syllable or two. In the chorus:
 
-> *Five hundred miles with your song playing on repeat* 
+> *Five hundred miles with your song playing on repeat*\
 > *Five hundred miles and the door was closed and left us incomplete*
 
 I caught myself singing the first "miles" differently than the second, depending on the melody. It felt important to settle on one way and stay consistent.
