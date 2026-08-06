@@ -4006,3 +4006,15 @@ input, select, textarea {
     font-size: 0.8em;
     border: solid 1px;
 }
+
+.status-tag {
+    display: inline-block;
+    padding: 0.2em 0.85em;
+    border-radius: 1em;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: solid 1px #9bf1ff;
+    color: #9bf1ff;
+}
