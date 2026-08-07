@@ -23,8 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Set recipient email
-    // TEMPORARY: testing deliverability against a non-iCloud address, revert to johnnyonion@me.com after
-    $to = "johnnyonion@gmail.com";
+    $to = "johnnyonion@me.com";
 
     // Set email subject
     $subject = "New message from johnnyonion.com - $show";
