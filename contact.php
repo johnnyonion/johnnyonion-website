@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    // Strip CR/LF to prevent email header injection via the From header below
+    // Strip CR/LF to prevent email header injection
     $name = str_replace(["\r", "\n"], "", strip_tags(trim($_POST["name"])));
     $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $message = trim($_POST["message"]);
@@ -22,6 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    // API key lives outside git; see config.example.php for setup
+    $configFile = __DIR__ . "/config.php";
+    if (!file_exists($configFile)) {
+        http_response_code(500);
+        echo "Server misconfiguration. Please email johnnyonion@me.com directly.";
+        exit;
+    }
+    require $configFile;
+
     // Set recipient email
     $to = "johnnyonion@me.com";
 
@@ -34,18 +43,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_content .= "Show: $show\n\n";
     $email_content .= "Message:\n$message\n";
 
-    // Build the email headers
-    // From must be domain-matching for SPF/DKIM alignment, or strict
-    // receivers (e.g. iCloud) silently drop the message. Visitor's real
-    // address goes in Reply-To so replies still reach them.
-    $headers = "From: johnnyonion.com <noreply@johnnyonion.com>\r\n";
-    $headers .= "Reply-To: $name <$email>";
+    // Send via Resend's HTTP API (PHP mail() proved unreliable on this host)
+    $payload = json_encode([
+        "from" => "johnnyonion.com <noreply@johnnyonion.com>",
+        "to" => [$to],
+        "reply_to" => "$name <$email>",
+        "subject" => $subject,
+        "text" => $email_content,
+    ]);
+
+    $ch = curl_init("https://api.resend.com/emails");
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "Authorization: Bearer " . RESEND_API_KEY,
+        "Content-Type: application/json",
+    ]);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    $response = curl_exec($ch);
+    $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
 
     // Send the email
-    if (mail($to, $subject, $email_content, $headers)) {
+    if ($status >= 200 && $status < 300) {
         header("Location: thank-you.html"); // ✅ Create this page for user confirmation
         exit;
     } else {
+        error_log("Resend API error ($status): $response");
         echo "Oops! Something went wrong, and we couldn't send your message.";
     }
 } else {
