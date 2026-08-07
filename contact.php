@@ -35,7 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_content .= "Message:\n$message\n";
 
     // Build the email headers
-    $headers = "From: $name <$email>";
+    // From must be domain-matching for SPF/DKIM alignment, or strict
+    // receivers (e.g. iCloud) silently drop the message. Visitor's real
+    // address goes in Reply-To so replies still reach them.
+    $headers = "From: johnnyonion.com <noreply@johnnyonion.com>\r\n";
+    $headers .= "Reply-To: $name <$email>";
 
     // Send the email
     if (mail($to, $subject, $email_content, $headers)) {
